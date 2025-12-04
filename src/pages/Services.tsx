@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Monitor, Brain, Cloud, Smartphone, Briefcase } from 'lucide-react';
 
-const Services: React.FC = () => {
+const Services = () => {
   const services = [
     {
       title: "Cybersecurity Services",

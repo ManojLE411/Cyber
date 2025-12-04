@@ -1,8 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Cloud, Container, GitBranch, ShieldCheck, Settings, ArrowRight, TrendingUp, CheckCircle, Lock } from 'lucide-react';
 
-const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string; delay?: string }> = ({ children, className = '', delay = '0ms' }) => {
+interface AnimatedSectionProps {
+  children: ReactNode;
+  className?: string;
+  delay?: string;
+  key?: string | number;
+}
+
+const AnimatedSection = ({ children, className = '', delay = '0ms' }: AnimatedSectionProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -35,7 +42,7 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string;
   );
 };
 
-const CloudDevOps: React.FC = () => {
+const CloudDevOps = () => {
   const caseStudies = [
     {
       title: "E-Commerce Scaling on AWS",

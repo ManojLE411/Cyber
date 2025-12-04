@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -22,6 +22,7 @@ import Careers from './pages/Careers';
 import JobApplication from './pages/JobApplication';
 import Legal from './pages/Legal';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 // Custom ScrollToTop component handling scroll restoration manually
 const ScrollToTop = () => {
@@ -34,7 +35,7 @@ const ScrollToTop = () => {
   return null;
 };
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Router>
       <ScrollToTop />
@@ -64,6 +65,7 @@ const App: React.FC = () => {
             <Route path="/careers/apply" element={<JobApplication />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/legal" element={<Legal />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
@@ -74,3 +76,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+

@@ -1,7 +1,6 @@
-import React from 'react';
 import { Code2, Settings, Database, Globe } from 'lucide-react';
 
-const SoftwareDev: React.FC = () => {
+const SoftwareDev = () => {
   return (
     <div className="bg-white min-h-screen">
       <div className="relative bg-slate-900 py-20 text-white overflow-hidden">

@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Smile, Coffee, Target, ArrowRight, Briefcase } from 'lucide-react';
 
-const Careers: React.FC = () => {
+const Careers = () => {
   const benefits = [
     { title: "Great Culture", desc: "Collaborative and inclusive environment.", icon: Smile },
     { title: "Continuous Learning", desc: "Access to courses and workshops.", icon: Target },

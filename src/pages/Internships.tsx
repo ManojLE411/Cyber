@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Briefcase, Code, Terminal, Award, Users, ArrowRight, CheckCircle } from 'lucide-react';
 
-const Internships: React.FC = () => {
+const Internships = () => {
   const highlights = [
     {
       title: "Hands-on Technology Training",

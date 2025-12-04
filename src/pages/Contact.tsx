@@ -1,14 +1,42 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { useState, type FormEvent } from 'react';
+import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Facebook, CheckCircle } from 'lucide-react';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    alert('Thank you for contacting KOLMAG. We will get back to you shortly.');
+    // Simulate API call
+    setSubmitted(true);
     setFormData({ name: '', email: '', phone: '', message: '' });
+    window.scrollTo(0, 0);
   };
+
+  if (submitted) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+        <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-xl text-center border border-slate-100">
+          <div className="h-20 w-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle className="h-10 w-10 text-green-600" />
+          </div>
+          <h2 className="text-2xl font-bold text-slate-900 mb-2">Message Sent Successfully!</h2>
+          <p className="text-gray-600 mb-6">
+            Thank you for contacting KOLMAG. We have received your message and will get back to you shortly.
+          </p>
+          <button 
+            onClick={() => {
+              setSubmitted(false);
+              setFormData({ name: '', email: '', phone: '', message: '' });
+            }}
+            className="text-secondary font-semibold hover:underline"
+          >
+            Send another message
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -48,14 +76,14 @@ const Contact: React.FC = () => {
                     <Phone className="h-6 w-6 text-secondary mr-4 shrink-0" />
                     <div>
                       <h3 className="font-semibold">Phone</h3>
-                      <p className="text-gray-400">+91 63096 49554</p>
+                      <a href="tel:+916309649554" className="text-gray-400 hover:text-secondary transition-colors">+91 63096 49554</a>
                     </div>
                   </div>
                   <div className="flex items-center">
                     <Mail className="h-6 w-6 text-secondary mr-4 shrink-0" />
                     <div>
                       <h3 className="font-semibold">Email</h3>
-                      <p className="text-gray-400">Kolmagcybertech@gmail.com</p>
+                      <a href="mailto:Kolmagcybertech@gmail.com" className="text-gray-400 hover:text-secondary transition-colors">Kolmagcybertech@gmail.com</a>
                     </div>
                   </div>
                 </div>
@@ -64,13 +92,13 @@ const Contact: React.FC = () => {
               <div className="mt-12">
                 <h3 className="font-semibold mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
-                   <a href="#" className="h-10 w-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 hover:-translate-y-1">
+                   <a href="https://www.linkedin.com/company/kolmag-cyber-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="h-10 w-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 hover:-translate-y-1" aria-label="LinkedIn">
                      <Linkedin className="h-5 w-5" />
                    </a>
-                   <a href="#" className="h-10 w-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 hover:-translate-y-1">
+                   <a href="https://x.com/kolmagcybertech" target="_blank" rel="noopener noreferrer" className="h-10 w-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 hover:-translate-y-1" aria-label="Twitter">
                      <Twitter className="h-5 w-5" />
                    </a>
-                   <a href="#" className="h-10 w-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 hover:-translate-y-1">
+                   <a href="https://www.facebook.com/kolmagcybertech" target="_blank" rel="noopener noreferrer" className="h-10 w-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 hover:-translate-y-1" aria-label="Facebook">
                      <Facebook className="h-5 w-5" />
                    </a>
                 </div>
@@ -81,8 +109,10 @@ const Contact: React.FC = () => {
               <h2 className="text-2xl font-bold text-slate-900 mb-6">Send us a message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Full Name</label>
+                  <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700">Full Name</label>
                   <input
+                    id="contact-name"
+                    name="name"
                     required
                     type="text"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary bg-gray-50 p-3 border"
@@ -92,8 +122,10 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Email</label>
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700">Email</label>
                     <input
+                      id="contact-email"
+                      name="email"
                       required
                       type="email"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary bg-gray-50 p-3 border"
@@ -102,8 +134,10 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Phone</label>
+                    <label htmlFor="contact-phone" className="block text-sm font-medium text-gray-700">Phone</label>
                     <input
+                      id="contact-phone"
+                      name="phone"
                       type="tel"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary bg-gray-50 p-3 border"
                       value={formData.phone}
@@ -112,8 +146,10 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Message</label>
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700">Message</label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     required
                     rows={4}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary bg-gray-50 p-3 border"

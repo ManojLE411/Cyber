@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import logo from '../assets/logo.png';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+    setOpenDropdown(null);
+  }, [location.pathname]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -54,7 +61,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="/assets/logo.png" 
+              src={logo} 
               alt="KOLMAG Cyber Technologies Logo" 
               className="h-12 w-auto"
             />
@@ -67,9 +74,11 @@ const Navbar: React.FC = () => {
                   {link.children ? (
                     <button 
                       className={`px-3 py-2 rounded-md text-sm font-medium flex items-center ${location.pathname.startsWith(link.path) ? 'text-secondary' : 'text-gray-300 hover:text-white'}`}
+                      aria-label={`${link.name} menu`}
+                      aria-haspopup="true"
                     >
                       {link.name} <ChevronDown className="ml-1 h-4 w-4" />
-                      <div className="absolute top-full left-0 w-48 bg-slate-800 rounded-md shadow-xl py-2 hidden group-hover:block border border-slate-700">
+                      <div className="absolute top-full left-0 w-48 bg-slate-800 rounded-md shadow-xl py-2 hidden group-hover:block border border-slate-700" role="menu">
                         {link.children.map((child) => (
                           <Link
                             key={child.name}
@@ -97,7 +106,9 @@ const Navbar: React.FC = () => {
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-secondary"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -114,6 +125,8 @@ const Navbar: React.FC = () => {
                   <>
                     <button
                       onClick={() => handleDropdown(link.name)}
+                      aria-label={`Toggle ${link.name} submenu`}
+                      aria-expanded={openDropdown === link.name}
                       className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 flex justify-between"
                     >
                       {link.name} <ChevronDown className={`h-5 w-5 transform ${openDropdown === link.name ? 'rotate-180' : ''}`} />

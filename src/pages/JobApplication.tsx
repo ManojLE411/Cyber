@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, type ChangeEvent, type FormEvent } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Briefcase, User, Mail, Phone, Link as LinkIcon, UploadCloud, FileText, CheckCircle, ArrowLeft, Send } from 'lucide-react';
 
-const JobApplication: React.FC = () => {
+const JobApplication = () => {
   const location = useLocation();
   const [submitted, setSubmitted] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
@@ -25,21 +25,21 @@ const JobApplication: React.FC = () => {
     window.scrollTo(0, 0);
   }, [location.state]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFileName(e.target.files[0].name);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Simulate API submission
-    console.log("Job Application Submitted:", { ...formData, resume: fileName });
+    // TODO: Integrate with backend API
+    // For now, simulate successful submission
     setSubmitted(true);
     window.scrollTo(0, 0);
   };

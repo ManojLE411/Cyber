@@ -1,8 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
+import logo from '../assets/logo.png';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <footer className="bg-slate-950 text-gray-400 pt-16 pb-8 border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center mb-4">
               <img 
-                src="/assets/logo.png" 
+                src={logo} 
                 alt="KOLMAG Cyber Technologies Logo" 
                 className="h-10 w-auto"
               />
@@ -20,9 +20,9 @@ const Footer: React.FC = () => {
               Next-generation technology company offering enterprise-level software development, robust cybersecurity services, and advanced AI & Data Science solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white"><Linkedin className="h-5 w-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-white"><Twitter className="h-5 w-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-white"><Facebook className="h-5 w-5" /></a>
+              <a href="https://www.linkedin.com/company/kolmag-cyber-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
+              <a href="https://x.com/kolmagcybertech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white" aria-label="Twitter"><Twitter className="h-5 w-5" /></a>
+              <a href="https://www.facebook.com/kolmagcybertech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white" aria-label="Facebook"><Facebook className="h-5 w-5" /></a>
             </div>
           </div>
 
@@ -56,11 +56,11 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-secondary shrink-0" />
-                <span>+91 63096 49554</span>
+                <a href="tel:+916309649554" className="hover:text-secondary transition-colors">+91 63096 49554</a>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-secondary shrink-0" />
-                <span>Kolmagcybertech@gmail.com</span>
+                <a href="mailto:Kolmagcybertech@gmail.com" className="hover:text-secondary transition-colors">Kolmagcybertech@gmail.com</a>
               </li>
             </ul>
           </div>

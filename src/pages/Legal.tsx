@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-const Legal: React.FC = () => {
+const Legal = () => {
   const [activeTab, setActiveTab] = useState<'privacy' | 'terms' | 'refund'>('privacy');
 
   return (

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { BookOpen, Send, User, Mail, Phone, GraduationCap, Briefcase, FileText, CheckCircle } from 'lucide-react';
 
-const InternshipApplication: React.FC = () => {
+const InternshipApplication = () => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -15,15 +15,15 @@ const InternshipApplication: React.FC = () => {
     message: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Simulate API call
-    console.log("Application Submitted:", formData);
+    // TODO: Integrate with backend API
+    // For now, simulate successful submission
     setSubmitted(true);
     window.scrollTo(0, 0);
   };
@@ -40,7 +40,20 @@ const InternshipApplication: React.FC = () => {
             Thank you for applying to the KOLMAG Internship Program. Our training team will review your profile and contact you within 48 hours.
           </p>
           <button 
-            onClick={() => setSubmitted(false)}
+            onClick={() => {
+              setSubmitted(false);
+              setFormData({
+                fullName: '',
+                email: '',
+                phone: '',
+                college: '',
+                degree: '',
+                year: '',
+                domain: '',
+                duration: '1 Month',
+                message: ''
+              });
+            }}
             className="text-secondary font-semibold hover:underline"
           >
             Submit another application

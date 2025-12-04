@@ -1,8 +1,7 @@
-import React from 'react';
 import { CheckCircle, ShieldAlert, Lock, Activity, FileCheck, Users, Search, Server } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Cybersecurity: React.FC = () => {
+const Cybersecurity = () => {
   const sections = [
     {
       title: "Vulnerability Assessment & Penetration Testing (VAPT)",

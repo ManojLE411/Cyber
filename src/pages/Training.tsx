@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, GraduationCap, Briefcase, Cpu } from 'lucide-react';
 
-const Training: React.FC = () => {
+const Training = () => {
   return (
     <div className="bg-slate-50 min-h-screen">
       <div className="relative bg-slate-900 py-20 text-white overflow-hidden">

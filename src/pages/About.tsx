@@ -1,6 +1,5 @@
-import React from 'react';
 
-const About: React.FC = () => {
+const About = () => {
   return (
     <div className="bg-white">
       <div className="relative bg-slate-900 py-24 text-white overflow-hidden">

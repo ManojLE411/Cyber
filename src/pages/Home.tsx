@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, Code, Cpu, Award, Building2, Brain, Users, Clock, CheckCircle } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Code, Cpu, Award, Building2, Brain, Users, Clock } from 'lucide-react';
 
-const Home: React.FC = () => {
+const Home = () => {
   const features = [
     {
       title: "Enterprise-Grade Standards",

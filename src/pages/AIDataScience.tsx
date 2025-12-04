@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Brain, Database, MessageSquare, Eye, Bot, BarChart, ArrowRight, Cpu, Layers } from 'lucide-react';
 
-const AIDataScience: React.FC = () => {
+const AIDataScience = () => {
   const services = [
     {
       title: "Machine Learning Models",

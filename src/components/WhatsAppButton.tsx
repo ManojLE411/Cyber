@@ -1,6 +1,5 @@
-import React from 'react';
 
-const WhatsAppButton: React.FC = () => {
+const WhatsAppButton = () => {
   const phoneNumber = "916309649554"; // CountryCode + Number
   const message = "Hello! I would like to know more about your services.";
 

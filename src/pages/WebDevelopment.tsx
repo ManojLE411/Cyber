@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Monitor, Smartphone, Globe, ShoppingCart, Layout, Layers, ArrowRight, Code } from 'lucide-react';
 
-const WebDevelopment: React.FC = () => {
+const WebDevelopment = () => {
   const solutions = [
     {
       title: "Business Websites",

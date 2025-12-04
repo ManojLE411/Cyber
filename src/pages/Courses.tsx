@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Code, Database, Shield, Cloud, Server, Cpu, Check, Star, Users, Clock, Award } from 'lucide-react';
+import { Code, Database, Shield, Cloud, Server, Cpu, Check, Star, Users, Clock, Award } from 'lucide-react';
 
-const Courses: React.FC = () => {
+const Courses = () => {
   const courses = [
     {
       title: "Data Science Certification",

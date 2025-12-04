@@ -1,8 +1,7 @@
-import React from 'react';
 import { Check, Cpu, Wifi, Shield, Code, Database } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Projects: React.FC = () => {
+const Projects = () => {
   return (
     <div className="bg-white min-h-screen">
       <div className="relative bg-slate-900 py-24 text-white text-center overflow-hidden">
