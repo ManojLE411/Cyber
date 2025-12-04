@@ -1,7 +1,67 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, Code, Cpu, Award, Building2, Brain, Users, Clock } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Code, Cpu, Award, Building2, Brain, Users, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
+import './Home.css';
 
 const Home = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroSlides = [
+    {
+      title: "Engineering Secure, Intelligent &",
+      titleHighlight: "Future-Ready",
+      description: "Empowering enterprises with cutting-edge software engineering, cybersecurity services, and AI-driven solutions while shaping industry-ready engineering talent.",
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      buttonText: "Explore Services",
+      buttonLink: "/services"
+    },
+    {
+      title: "Cybersecurity Excellence &",
+      titleHighlight: "Digital Protection",
+      description: "Comprehensive security solutions designed to protect enterprises from evolving cyber threats. We follow OWASP, NIST, ISO 27001 frameworks.",
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      buttonText: "Security Services",
+      buttonLink: "/services/cybersecurity"
+    },
+    {
+      title: "AI & Data Science",
+      titleHighlight: "Transformation",
+      description: "Harness the power of data and AI to improve insights, automation, and decision-making. Transform raw data into competitive advantage.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      buttonText: "AI Solutions",
+      buttonLink: "/services/ai"
+    },
+    {
+      title: "Training & Talent",
+      titleHighlight: "Development",
+      description: "Transforming engineering students into skilled professionals with industry-aligned programs, internships, and hands-on project experience.",
+      image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      buttonText: "View Programs",
+      buttonLink: "/training"
+    }
+  ];
+
+  // Auto-play carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [heroSlides.length]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const goToPrevious = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const goToNext = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
   const features = [
     {
       title: "Enterprise-Grade Standards",
@@ -31,74 +91,110 @@ const Home = () => {
   ];
 
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <div className="relative bg-primary py-24 sm:py-32">
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-            alt="Cyber Technology Background"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/80" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-6">
-              Engineering Secure, Intelligent & <span className="text-secondary">Future-Ready</span> Digital Solutions
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
-              Empowering enterprises with cutting-edge software engineering, cybersecurity services, and AI-driven solutions while shaping industry-ready engineering talent.
-            </p>
-            <div className="mt-10 flex items-center gap-x-6">
-              <Link
-                to="/services"
-                className="rounded-md bg-secondary px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-all"
-              >
-                Explore Services
-              </Link>
-              <Link to="/contact" className="text-sm font-semibold leading-6 text-white flex items-center hover:text-secondary">
-                Contact Us <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
+    <div className="home-container">
+      {/* Hero Section with Carousel */}
+      <div className="home-hero">
+        <div className="home-hero-carousel">
+          {heroSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`home-hero-slide ${index === currentSlide ? 'active' : ''}`}
+            >
+              <div className="home-hero-bg">
+                <img
+                  src={slide.image}
+                  alt={`Slide ${index + 1}`}
+                />
+                <div className="home-hero-overlay" />
+              </div>
+              <div className="home-hero-content">
+                <div className="home-hero-inner">
+                  <h1 className="home-hero-title">
+                    {slide.title} <span>{slide.titleHighlight}</span> Digital Solutions
+                  </h1>
+                  <p className="home-hero-description">
+                    {slide.description}
+                  </p>
+                  <div className="home-hero-actions">
+                    <Link
+                      to={slide.buttonLink}
+                      className="home-hero-button"
+                    >
+                      {slide.buttonText}
+                    </Link>
+                    <Link to="/contact" className="home-hero-link">
+                      Contact Us <ArrowRight style={{ marginLeft: '0.25rem', height: '1rem', width: '1rem' }} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
+
+        {/* Carousel Navigation Arrows */}
+        <button 
+          className="home-hero-nav home-hero-nav-prev"
+          onClick={goToPrevious}
+          aria-label="Previous slide"
+        >
+          <ChevronLeft style={{ height: '2rem', width: '2rem' }} />
+        </button>
+        <button 
+          className="home-hero-nav home-hero-nav-next"
+          onClick={goToNext}
+          aria-label="Next slide"
+        >
+          <ChevronRight style={{ height: '2rem', width: '2rem' }} />
+        </button>
+
+        {/* Carousel Dots */}
+        <div className="home-hero-dots">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              className={`home-hero-dot ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
 
       {/* About Section Snippet */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="home-about">
+        <div className="home-about-container">
+          <div className="home-about-grid">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-6">About KOLMAG</h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <h2 className="home-about-title">About KOLMAG</h2>
+              <p className="home-about-text">
                 KOLMAG Cyber Technologies Pvt Ltd is a next-generation technology company offering enterprise-level software development, robust cybersecurity services, and advanced AI & Data Science solutions.
               </p>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="home-about-text">
                 With a strong commitment to quality and innovation, we deliver secure, scalable, and high-performance digital systems that meet the demands of the modern world.
               </p>
-              <Link to="/about" className="text-secondary font-semibold hover:text-cyan-700">Read More &rarr;</Link>
+              <Link to="/about" className="home-about-link">Read More &rarr;</Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-slate-50 p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105 border border-transparent hover:border-secondary">
-                <ShieldCheck className="h-10 w-10 text-secondary mb-4" />
-                <h3 className="font-semibold text-slate-900">Cybersecurity</h3>
-                <p className="text-sm text-gray-500 mt-2">VAPT & Threat Intel</p>
+            <div className="home-about-cards">
+              <div className="home-about-card">
+                <ShieldCheck className="home-about-card-icon" />
+                <h3 className="home-about-card-title">Cybersecurity</h3>
+                <p className="home-about-card-desc">VAPT & Threat Intel</p>
               </div>
-              <div className="bg-slate-50 p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105 border border-transparent hover:border-secondary">
-                <Code className="h-10 w-10 text-secondary mb-4" />
-                <h3 className="font-semibold text-slate-900">Development</h3>
-                <p className="text-sm text-gray-500 mt-2">Web & Mobile Apps</p>
+              <div className="home-about-card">
+                <Code className="home-about-card-icon" />
+                <h3 className="home-about-card-title">Development</h3>
+                <p className="home-about-card-desc">Web & Mobile Apps</p>
               </div>
-              <div className="bg-slate-50 p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105 border border-transparent hover:border-secondary">
-                <Cpu className="h-10 w-10 text-secondary mb-4" />
-                <h3 className="font-semibold text-slate-900">AI & Data</h3>
-                <p className="text-sm text-gray-500 mt-2">ML & Analytics</p>
+              <div className="home-about-card">
+                <Cpu className="home-about-card-icon" />
+                <h3 className="home-about-card-title">AI & Data</h3>
+                <p className="home-about-card-desc">ML & Analytics</p>
               </div>
-              <div className="bg-slate-50 p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105 border border-transparent hover:border-secondary">
-                <Award className="h-10 w-10 text-secondary mb-4" />
-                <h3 className="font-semibold text-slate-900">Training</h3>
-                <p className="text-sm text-gray-500 mt-2">Projects & Internships</p>
+              <div className="home-about-card">
+                <Award className="home-about-card-icon" />
+                <h3 className="home-about-card-title">Training</h3>
+                <p className="home-about-card-desc">Projects & Internships</p>
               </div>
             </div>
           </div>
@@ -106,41 +202,41 @@ const Home = () => {
       </section>
 
       {/* Key Divisions */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Our Key Divisions</h2>
-            <p className="mt-4 text-lg text-gray-600">Bridging the gap between industry needs and technological innovation.</p>
+      <section className="home-divisions">
+        <div className="home-divisions-container">
+          <div className="home-divisions-header">
+            <h2 className="home-divisions-title">Our Key Divisions</h2>
+            <p className="home-divisions-description">Bridging the gap between industry needs and technological innovation.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-secondary">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Technology Services</h3>
-              <ul className="space-y-3">
+          <div className="home-divisions-grid">
+            <div className="home-division-card">
+              <h3 className="home-division-card-title">Technology Services</h3>
+              <ul className="home-division-list">
                 {['Software Development', 'Cybersecurity & VAPT', 'Cloud & DevOps', 'Web & Mobile Applications', 'AI & Data Science Solutions'].map((item) => (
-                  <li key={item} className="flex items-center text-gray-600">
-                    <div className="h-2 w-2 bg-secondary rounded-full mr-3"></div>
+                  <li key={item} className="home-division-list-item">
+                    <div className="home-division-list-dot"></div>
                     {item}
                   </li>
                 ))}
               </ul>
-              <div className="mt-8">
-                 <Link to="/services" className="text-secondary font-medium hover:text-cyan-700">View Services &rarr;</Link>
+              <div className="home-division-link">
+                 <Link to="/services" className="home-division-link-text">View Services &rarr;</Link>
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-secondary">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Training & Talent Development</h3>
-              <ul className="space-y-3">
+            <div className="home-division-card">
+              <h3 className="home-division-card-title">Training & Talent Development</h3>
+              <ul className="home-division-list">
                 {['B.Tech Final Year Projects', 'AI, ML, Cybersecurity Courses', 'Industrial Internships', 'Full Stack Development', 'Academic Collaboration'].map((item) => (
-                  <li key={item} className="flex items-center text-gray-600">
-                    <div className="h-2 w-2 bg-accent rounded-full mr-3"></div>
+                  <li key={item} className="home-division-list-item">
+                    <div className="home-division-list-dot home-division-list-dot-accent"></div>
                     {item}
                   </li>
                 ))}
               </ul>
-              <div className="mt-8">
-                 <Link to="/training" className="text-accent font-medium hover:text-amber-600">View Programs &rarr;</Link>
+              <div className="home-division-link">
+                 <Link to="/training" className="home-division-link-text home-division-link-text-accent">View Programs &rarr;</Link>
               </div>
             </div>
           </div>
@@ -148,25 +244,25 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us - Updated UI */}
-      <section className="py-20 bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-             <h2 className="text-3xl font-bold mb-4">Why Choose Us</h2>
-             <p className="text-gray-400 max-w-2xl mx-auto">
+      <section className="home-features">
+        <div className="home-features-container">
+          <div className="home-features-header">
+             <h2 className="home-features-title">Why Choose Us</h2>
+             <p className="home-features-description">
                We combine technical expertise with a commitment to excellence, ensuring your business stays ahead of the curve.
              </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="home-features-grid">
             {features.map((feature, idx) => (
-              <div key={idx} className="bg-slate-800 p-8 rounded-xl border border-slate-700 transition-all duration-300 hover:scale-105 hover:border-secondary hover:shadow-xl hover:shadow-cyan-500/10 group">
-                 <div className="flex items-start mb-4">
-                   <div className="bg-slate-900 p-3 rounded-lg text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
-                     <feature.icon className="h-6 w-6" />
+              <div key={idx} className="home-feature-card">
+                 <div className="home-feature-icon-wrapper">
+                   <div className="home-feature-icon-bg">
+                     <feature.icon style={{ height: '1.5rem', width: '1.5rem' }} />
                    </div>
                  </div>
-                 <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
-                 <p className="text-gray-400 leading-relaxed text-sm">
+                 <h3 className="home-feature-title">{feature.title}</h3>
+                 <p className="home-feature-description">
                    {feature.desc}
                  </p>
               </div>

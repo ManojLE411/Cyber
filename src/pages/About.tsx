@@ -1,67 +1,154 @@
+import { ShieldCheck, Code, Brain, Cloud, Users, Award, Target, Zap, Lock, Sparkles } from 'lucide-react';
+import './About.css';
 
 const About = () => {
+  const strengths = [
+    { text: 'Highly skilled engineers and mentors', icon: Users },
+    { text: 'Robust software development lifecycle', icon: Code },
+    { text: 'Industry-certified cybersecurity professionals', icon: ShieldCheck },
+    { text: 'Modern training methodologies', icon: Award },
+    { text: 'Dedicated R&D team', icon: Brain }
+  ];
+
+  const expertise = [
+    { title: 'Secure Software Engineering', icon: Lock, desc: 'Building secure, scalable applications' },
+    { title: 'Cyber Defence & Threat Intelligence', icon: ShieldCheck, desc: 'Advanced security solutions' },
+    { title: 'AI and Data Science', icon: Brain, desc: 'Intelligent data-driven solutions' },
+    { title: 'Full-Stack Development', icon: Code, desc: 'End-to-end web and mobile applications' },
+    { title: 'Cloud & DevOps', icon: Cloud, desc: 'Scalable cloud infrastructure' },
+    { title: 'Research & Innovation', icon: Sparkles, desc: 'Cutting-edge technology solutions' }
+  ];
+
+  const values = [
+    { title: 'Innovation', desc: 'We stay ahead of technological trends and continuously innovate to provide cutting-edge solutions.' },
+    { title: 'Excellence', desc: 'We maintain the highest standards of quality in every project we undertake.' },
+    { title: 'Security', desc: 'Security is embedded in every stage of our development lifecycle.' },
+    { title: 'Collaboration', desc: 'We believe in working together with our clients and partners to achieve mutual success.' }
+  ];
+
+  const stats = [
+    { number: '100+', label: 'Projects Delivered' },
+    { number: '500+', label: 'Students Trained' },
+    { number: '50+', label: 'Enterprise Clients' },
+    { number: '15+', label: 'Industry Experts' }
+  ];
+
   return (
-    <div className="bg-white">
-      <div className="relative bg-slate-900 py-24 text-white overflow-hidden">
-        <div className="absolute inset-0">
+    <div className="about-container">
+      {/* Hero Section */}
+      <div className="about-hero">
+        <div className="about-hero-bg">
           <img 
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" 
             alt="Office Background" 
-            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-slate-900/80" />
+          <div className="about-hero-overlay" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
-           <h1 className="text-4xl font-bold mb-4">About Us</h1>
-           <p className="text-xl text-gray-300">Innovating for a secure and intelligent future.</p>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="prose prose-lg max-w-none text-gray-600">
-          <p className="lead text-2xl font-light text-slate-800 mb-8">
-            KOLMAG Cyber Technologies is a professionally driven IT organization that integrates innovation, engineering excellence, and cybersecurity intelligence to deliver world-class solutions.
+        <div className="about-hero-content">
+          <h1 className="about-hero-title">About KOLMAG</h1>
+          <p className="about-hero-description">
+            Empowering enterprises with cutting-edge technology solutions while shaping the next generation of engineering talent.
           </p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <p className="mb-6">
-                We operate across technology services, digital transformation, and talent development to create lasting impact for businesses and individuals. Our philosophy is simple: we believe that technology and talent together shape the future.
-              </p>
-              <p>
-                Our unique model ensures we deliver transformational solutions for enterprises while empowering engineering students with industry-ready capabilities through our rigorous training programs.
-              </p>
-            </div>
-            <div className="bg-slate-50 p-8 rounded-xl border-l-4 border-secondary">
-               <h3 className="text-xl font-bold text-slate-900 mb-4">Our Strengths</h3>
-               <ul className="space-y-3">
-                 {['Highly skilled engineers and mentors', 'Robust software development lifecycle', 'Industry-certified cybersecurity professionals', 'Modern training methodologies', 'Dedicated R&D team'].map(item => (
-                   <li key={item} className="flex items-center">
-                     <span className="text-secondary mr-2">•</span> {item}
-                   </li>
-                 ))}
-               </ul>
-            </div>
-          </div>
-
-          <div className="mt-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">Our Expertise</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                "Secure Software Engineering",
-                "Cyber Defence & Threat Intelligence",
-                "AI and Data Science Implementation",
-                "Full-Stack Development",
-                "Cloud & DevOps",
-                "Research & Innovation"
-              ].map((expert, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center font-medium text-slate-800 hover:border-secondary transition-colors">
-                  {expert}
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
+
+      {/* Stats Section */}
+      <section className="about-stats">
+        <div className="about-stats-container">
+          {stats.map((stat, idx) => (
+            <div key={idx} className="about-stat-item">
+              <div className="about-stat-number">{stat.number}</div>
+              <div className="about-stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className="about-mission">
+        <div className="about-mission-container">
+          <div className="about-mission-content">
+            <div className="about-mission-header">
+              <Target className="about-mission-icon" />
+              <h2 className="about-mission-title">Our Mission</h2>
+            </div>
+            <p className="about-mission-text">
+              KOLMAG Cyber Technologies is a professionally driven IT organization that integrates innovation, engineering excellence, and cybersecurity intelligence to deliver world-class solutions.
+            </p>
+            <p className="about-mission-text">
+              We operate across technology services, digital transformation, and talent development to create lasting impact for businesses and individuals. Our philosophy is simple: we believe that technology and talent together shape the future.
+            </p>
+            <p className="about-mission-text">
+              Our unique model ensures we deliver transformational solutions for enterprises while empowering engineering students with industry-ready capabilities through our rigorous training programs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Strengths Section */}
+      <section className="about-strengths">
+        <div className="about-strengths-container">
+          <div className="about-section-header">
+            <h2 className="about-section-title">Our Strengths</h2>
+            <p className="about-section-description">
+              What sets us apart in delivering exceptional technology solutions
+            </p>
+          </div>
+          <div className="about-strengths-grid">
+            {strengths.map((strength, idx) => (
+              <div key={idx} className="about-strength-card">
+                <div className="about-strength-icon-wrapper">
+                  <strength.icon className="about-strength-icon" />
+                </div>
+                <p className="about-strength-text">{strength.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="about-values">
+        <div className="about-values-container">
+          <div className="about-section-header">
+            <h2 className="about-section-title">Our Core Values</h2>
+            <p className="about-section-description">
+              The principles that guide everything we do
+            </p>
+          </div>
+          <div className="about-values-grid">
+            {values.map((value, idx) => (
+              <div key={idx} className="about-value-card">
+                <h3 className="about-value-title">{value.title}</h3>
+                <p className="about-value-desc">{value.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise Section */}
+      <section className="about-expertise">
+        <div className="about-expertise-container">
+          <div className="about-section-header">
+            <h2 className="about-section-title">Our Expertise</h2>
+            <p className="about-section-description">
+              Specialized knowledge across cutting-edge technologies
+            </p>
+          </div>
+          <div className="about-expertise-grid">
+            {expertise.map((expert, idx) => (
+              <div key={idx} className="about-expertise-card">
+                <div className="about-expertise-icon-wrapper">
+                  <expert.icon className="about-expertise-icon" />
+                </div>
+                <h3 className="about-expertise-card-title">{expert.title}</h3>
+                <p className="about-expertise-card-desc">{expert.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

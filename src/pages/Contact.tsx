@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Facebook, CheckCircle } from 'lucide-react';
+import './Contact.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -15,13 +16,13 @@ const Contact = () => {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
-        <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-xl text-center border border-slate-100">
-          <div className="h-20 w-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="h-10 w-10 text-green-600" />
+      <div className="contact-success">
+        <div className="contact-success-card">
+          <div className="contact-success-icon">
+            <CheckCircle style={{ height: '2.5rem', width: '2.5rem', color: 'var(--color-green-600)' }} />
           </div>
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">Message Sent Successfully!</h2>
-          <p className="text-gray-600 mb-6">
+          <h2 className="contact-success-title">Message Sent Successfully!</h2>
+          <p className="contact-success-text">
             Thank you for contacting KOLMAG. We have received your message and will get back to you shortly.
           </p>
           <button 
@@ -29,7 +30,7 @@ const Contact = () => {
               setSubmitted(false);
               setFormData({ name: '', email: '', phone: '', message: '' });
             }}
-            className="text-secondary font-semibold hover:underline"
+            className="contact-success-link"
           >
             Send another message
           </button>
@@ -39,129 +40,128 @@ const Contact = () => {
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen">
-      <div className="relative bg-slate-900 py-20 text-center overflow-hidden">
-        <div className="absolute inset-0">
+    <div className="contact-container">
+      <div className="contact-hero">
+        <div className="contact-hero-bg">
           <img 
             src="https://images.unsplash.com/photo-1423666639041-f142fcb93370?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80" 
             alt="Contact Background" 
-            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-slate-900/90" />
+          <div className="contact-hero-overlay" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-white">Contact Us</h1>
-          <p className="mt-4 text-gray-300">Get in touch for services, training, or general inquiries.</p>
+        <div className="contact-hero-content">
+          <h1 className="contact-hero-title">Contact Us</h1>
+          <p className="contact-hero-description">Get in touch for services, training, or general inquiries.</p>
         </div>
       </div>
       
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white rounded-2xl shadow-xl overflow-hidden">
+      <div className="contact-content">
+        <div className="contact-container-inner">
+          <div className="contact-grid">
             
-            <div className="p-10 bg-slate-900 text-white flex flex-col justify-between">
+            <div className="contact-info">
               <div>
-                <h2 className="text-2xl font-bold mb-8">Contact Information</h2>
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <MapPin className="h-6 w-6 text-secondary mr-4 mt-1 shrink-0" />
+                <h2 className="contact-info-title">Contact Information</h2>
+                <ul className="contact-info-list">
+                  <li className="contact-info-item">
+                    <MapPin className="contact-info-icon" />
                     <div>
-                      <h3 className="font-semibold">Head Office</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">
+                      <h3 className="contact-info-label">Head Office</h3>
+                      <p className="contact-info-text">
                         5th Floor, Vasista Bhavan, one day co working labs, APHB Colony, Indira Nagar, Gachibowli, Seri Lingampally, K.V.Rangareddy, Telangana - 500032
                       </p>
                     </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Phone className="h-6 w-6 text-secondary mr-4 shrink-0" />
+                  </li>
+                  <li className="contact-info-item-center">
+                    <Phone className="contact-info-icon-center" />
                     <div>
-                      <h3 className="font-semibold">Phone</h3>
-                      <a href="tel:+916309649554" className="text-gray-400 hover:text-secondary transition-colors">+91 63096 49554</a>
+                      <h3 className="contact-info-label">Phone</h3>
+                      <a href="tel:+916309649554" className="contact-info-link">+91 63096 49554</a>
                     </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="h-6 w-6 text-secondary mr-4 shrink-0" />
+                  </li>
+                  <li className="contact-info-item-center">
+                    <Mail className="contact-info-icon-center" />
                     <div>
-                      <h3 className="font-semibold">Email</h3>
-                      <a href="mailto:Kolmagcybertech@gmail.com" className="text-gray-400 hover:text-secondary transition-colors">Kolmagcybertech@gmail.com</a>
+                      <h3 className="contact-info-label">Email</h3>
+                      <a href="mailto:Kolmagcybertech@gmail.com" className="contact-info-link">Kolmagcybertech@gmail.com</a>
                     </div>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </div>
               
-              <div className="mt-12">
-                <h3 className="font-semibold mb-4">Follow Us</h3>
-                <div className="flex space-x-4">
-                   <a href="https://www.linkedin.com/company/kolmag-cyber-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="h-10 w-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 hover:-translate-y-1" aria-label="LinkedIn">
-                     <Linkedin className="h-5 w-5" />
+              <div className="contact-social">
+                <h3 className="contact-social-title">Follow Us</h3>
+                <div className="contact-social-links">
+                   <a href="https://www.linkedin.com/company/kolmag-cyber-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="contact-social-link" aria-label="LinkedIn">
+                     <Linkedin style={{ height: '1.25rem', width: '1.25rem' }} />
                    </a>
-                   <a href="https://x.com/kolmagcybertech" target="_blank" rel="noopener noreferrer" className="h-10 w-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 hover:-translate-y-1" aria-label="Twitter">
-                     <Twitter className="h-5 w-5" />
+                   <a href="https://x.com/kolmagcybertech" target="_blank" rel="noopener noreferrer" className="contact-social-link" aria-label="Twitter">
+                     <Twitter style={{ height: '1.25rem', width: '1.25rem' }} />
                    </a>
-                   <a href="https://www.facebook.com/kolmagcybertech" target="_blank" rel="noopener noreferrer" className="h-10 w-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 hover:-translate-y-1" aria-label="Facebook">
-                     <Facebook className="h-5 w-5" />
+                   <a href="https://www.facebook.com/kolmagcybertech" target="_blank" rel="noopener noreferrer" className="contact-social-link" aria-label="Facebook">
+                     <Facebook style={{ height: '1.25rem', width: '1.25rem' }} />
                    </a>
                 </div>
               </div>
             </div>
 
-            <div className="p-10">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Send us a message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700">Full Name</label>
+            <div className="contact-form">
+              <h2 className="contact-form-title">Send us a message</h2>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div className="contact-form-group">
+                  <label htmlFor="contact-name" className="contact-form-label">Full Name</label>
                   <input
                     id="contact-name"
                     name="name"
                     required
                     type="text"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary bg-gray-50 p-3 border"
+                    className="contact-form-input"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700">Email</label>
+                <div className="contact-form-grid">
+                  <div className="contact-form-group">
+                    <label htmlFor="contact-email" className="contact-form-label">Email</label>
                     <input
                       id="contact-email"
                       name="email"
                       required
                       type="email"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary bg-gray-50 p-3 border"
+                      className="contact-form-input"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                     />
                   </div>
-                  <div>
-                    <label htmlFor="contact-phone" className="block text-sm font-medium text-gray-700">Phone</label>
+                  <div className="contact-form-group">
+                    <label htmlFor="contact-phone" className="contact-form-label">Phone</label>
                     <input
                       id="contact-phone"
                       name="phone"
                       type="tel"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary bg-gray-50 p-3 border"
+                      className="contact-form-input"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     />
                   </div>
                 </div>
-                <div>
-                  <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700">Message</label>
+                <div className="contact-form-group">
+                  <label htmlFor="contact-message" className="contact-form-label">Message</label>
                   <textarea
                     id="contact-message"
                     name="message"
                     required
                     rows={4}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary bg-gray-50 p-3 border"
+                    className="contact-form-textarea"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-slate-900 text-white py-3 px-6 rounded-lg font-bold hover:bg-slate-800 flex items-center justify-center transition-colors"
+                  className="contact-form-button"
                 >
-                  Send Message <Send className="ml-2 h-4 w-4" />
+                  Send Message <Send style={{ marginLeft: '0.5rem', height: '1rem', width: '1rem' }} />
                 </button>
               </form>
             </div>

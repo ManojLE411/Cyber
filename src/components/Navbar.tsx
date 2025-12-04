@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.svg';
+import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,47 +54,51 @@ const Navbar = () => {
     }
   };
 
-  const isActive = (path: string) => location.pathname === path ? 'text-secondary font-bold' : 'text-gray-300 hover:text-white';
+  const isActive = (path: string) => location.pathname === path ? 'navbar-link active' : 'navbar-link';
 
   return (
-    <nav className="bg-primary text-white sticky top-0 z-50 shadow-lg border-b border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center space-x-3">
-            <img 
-              src={logo} 
-              alt="KOLMAG Cyber Technologies Logo" 
-              className="h-12 w-auto"
-            />
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-content">
+          <Link to="/" className="navbar-logo">
+            <div className="navbar-logo-wrapper">
+              <img 
+                src={logo} 
+                alt="KOLMAG Cyber Technologies Logo" 
+                className="navbar-logo-img"
+              />
+            </div>
           </Link>
           
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="navbar-links">
+            <div className="navbar-links-desktop">
               {navLinks.map((link) => (
-                <div key={link.name} className="relative group">
+                <div key={link.name} className="navbar-link-item">
                   {link.children ? (
-                    <button 
-                      className={`px-3 py-2 rounded-md text-sm font-medium flex items-center ${location.pathname.startsWith(link.path) ? 'text-secondary' : 'text-gray-300 hover:text-white'}`}
-                      aria-label={`${link.name} menu`}
-                      aria-haspopup="true"
-                    >
-                      {link.name} <ChevronDown className="ml-1 h-4 w-4" />
-                      <div className="absolute top-full left-0 w-48 bg-slate-800 rounded-md shadow-xl py-2 hidden group-hover:block border border-slate-700" role="menu">
+                    <>
+                      <button 
+                        className={`navbar-link-button ${location.pathname.startsWith(link.path) ? 'active' : ''}`}
+                        aria-label={`${link.name} menu`}
+                        aria-haspopup="true"
+                      >
+                        {link.name} <ChevronDown style={{ marginLeft: '0.25rem', height: '1rem', width: '1rem' }} />
+                      </button>
+                      <div className="navbar-dropdown" role="menu">
                         {link.children.map((child) => (
                           <Link
                             key={child.name}
                             to={child.path}
-                            className="block px-4 py-2 text-sm text-gray-300 hover:bg-slate-700 hover:text-white"
+                            className="navbar-dropdown-link"
                           >
                             {child.name}
                           </Link>
                         ))}
                       </div>
-                    </button>
+                    </>
                   ) : (
                     <Link
                       to={link.path}
-                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${isActive(link.path)}`}
+                      className={isActive(link.path)}
                     >
                       {link.name}
                     </Link>
@@ -103,22 +108,22 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="-mr-2 flex md:hidden">
+          <div className="navbar-mobile-toggle">
             <button
               onClick={toggleMenu}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="navbar-mobile-button"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X style={{ height: '1.5rem', width: '1.5rem' }} /> : <Menu style={{ height: '1.5rem', width: '1.5rem' }} />}
             </button>
           </div>
         </div>
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-slate-900 border-t border-gray-800">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="navbar-mobile-menu">
+          <div className="navbar-mobile-content">
             {navLinks.map((link) => (
               <div key={link.name}>
                 {link.children ? (
@@ -127,18 +132,18 @@ const Navbar = () => {
                       onClick={() => handleDropdown(link.name)}
                       aria-label={`Toggle ${link.name} submenu`}
                       aria-expanded={openDropdown === link.name}
-                      className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 flex justify-between"
+                      className="navbar-mobile-dropdown-button"
                     >
-                      {link.name} <ChevronDown className={`h-5 w-5 transform ${openDropdown === link.name ? 'rotate-180' : ''}`} />
+                      {link.name} <ChevronDown className={`navbar-mobile-dropdown-icon ${openDropdown === link.name ? 'rotated' : ''}`} />
                     </button>
                     {openDropdown === link.name && (
-                      <div className="pl-4 space-y-1">
+                      <div className="navbar-mobile-dropdown-menu">
                         {link.children.map((child) => (
                           <Link
                             key={child.name}
                             to={child.path}
                             onClick={toggleMenu}
-                            className="block px-3 py-2 rounded-md text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-700"
+                            className="navbar-mobile-dropdown-link"
                           >
                             {child.name}
                           </Link>
@@ -150,7 +155,7 @@ const Navbar = () => {
                   <Link
                     to={link.path}
                     onClick={toggleMenu}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+                    className="navbar-mobile-link"
                   >
                     {link.name}
                   </Link>

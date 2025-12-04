@@ -1,5 +1,6 @@
 import { CheckCircle, ShieldAlert, Lock, Activity, FileCheck, Users, Search, Server } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import './Cybersecurity.css';
 
 const Cybersecurity = () => {
   const sections = [
@@ -41,44 +42,43 @@ const Cybersecurity = () => {
   ];
 
   return (
-    <div className="bg-white pb-20">
-      <div className="relative bg-slate-900 py-24 text-white overflow-hidden">
-        <div className="absolute inset-0">
+    <div className="cybersecurity-container">
+      <div className="cybersecurity-hero">
+        <div className="cybersecurity-hero-bg">
           <img 
             src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
             alt="Cybersecurity Background" 
-            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900/80" />
+          <div className="cybersecurity-hero-overlay" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2">
-              <h1 className="text-4xl font-bold mb-6">Cybersecurity Services</h1>
-              <p className="text-xl text-gray-300">
+        <div className="cybersecurity-hero-content">
+          <div className="cybersecurity-hero-inner">
+            <div>
+              <h1 className="cybersecurity-hero-title">Cybersecurity Services</h1>
+              <p className="cybersecurity-hero-description">
                 Comprehensive solutions designed to protect enterprises from evolving cyber threats. We follow OWASP, NIST, ISO 27001 frameworks.
               </p>
             </div>
-            <div className="mt-8 md:mt-0">
-               <ShieldAlert className="h-32 w-32 text-secondary opacity-80" />
+            <div className="cybersecurity-hero-icon">
+               <ShieldAlert style={{ height: '8rem', width: '8rem', color: 'var(--color-secondary)', opacity: 0.8 }} />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="cybersecurity-content">
+        <div className="cybersecurity-grid">
           {sections.map((section, idx) => (
-            <div key={idx} className="bg-slate-50 rounded-xl p-8 border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-secondary">
-              <div className="flex items-center mb-6">
-                <section.icon className="h-8 w-8 text-secondary mr-3" />
-                <h3 className="text-2xl font-bold text-slate-800">{section.title}</h3>
+            <div key={idx} className="cybersecurity-card">
+              <div className="cybersecurity-card-header">
+                <section.icon className="cybersecurity-card-icon" />
+                <h3 className="cybersecurity-card-title">{section.title}</h3>
               </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <ul className="cybersecurity-card-list">
                 {section.items.map((item, i) => (
-                  <li key={i} className="flex items-start text-gray-600">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 shrink-0" />
-                    <span className="text-sm">{item}</span>
+                  <li key={i} className="cybersecurity-card-item">
+                    <CheckCircle className="cybersecurity-card-check" />
+                    <span className="cybersecurity-card-text">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -86,12 +86,12 @@ const Cybersecurity = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-blue-50 rounded-2xl p-8 text-center border border-blue-100">
-          <h3 className="text-2xl font-bold text-blue-900 mb-4">Secure Your Business Today</h3>
-          <p className="text-blue-800 mb-8 max-w-2xl mx-auto">
+        <div className="cybersecurity-cta">
+          <h3 className="cybersecurity-cta-title">Secure Your Business Today</h3>
+          <p className="cybersecurity-cta-text">
             Don't wait for a breach to happen. Let our experts assess and fortify your digital infrastructure.
           </p>
-          <Link to="/contact" className="bg-primary text-white px-8 py-3 rounded-md font-semibold hover:bg-slate-800">
+          <Link to="/contact" className="cybersecurity-cta-button">
             Get a Security Audit
           </Link>
         </div>

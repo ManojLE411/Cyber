@@ -1,0 +1,287 @@
+.softwaredev-container {
+  background-color: var(--color-white);
+  padding-bottom: 5rem;
+}
+
+.softwaredev-hero {
+  position: relative;
+  background-color: var(--color-slate-900);
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.softwaredev-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.softwaredev-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.softwaredev-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--color-slate-900), rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8));
+}
+
+.softwaredev-hero-content {
+  position: relative;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.softwaredev-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.softwaredev-hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.softwaredev-hero-description {
+  font-size: 1.25rem;
+  color: var(--color-gray-300);
+}
+
+.softwaredev-hero-icon {
+  margin-top: 2rem;
+}
+
+.softwaredev-content {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.softwaredev-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.softwaredev-intro-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin-bottom: 1.5rem;
+}
+
+.softwaredev-intro-text {
+  font-size: 1.125rem;
+  color: var(--color-slate-600);
+  line-height: 1.75;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.softwaredev-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.softwaredev-card {
+  background-color: var(--color-slate-50);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  border: 1px solid var(--color-slate-100);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition: all 0.3s;
+}
+
+.softwaredev-card:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  transform: scale(1.05);
+  border-color: var(--color-secondary);
+  background-color: var(--color-white);
+  border-width: 2px;
+}
+
+.softwaredev-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.softwaredev-card-icon {
+  height: 2rem;
+  width: 2rem;
+  color: var(--color-secondary);
+  margin-right: 0.75rem;
+}
+
+.softwaredev-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-slate-800);
+}
+
+.softwaredev-card-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.softwaredev-card-item {
+  display: flex;
+  align-items: start;
+  color: var(--color-gray-600);
+}
+
+.softwaredev-card-check {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: var(--color-green-500);
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.softwaredev-card-text {
+  font-size: 0.875rem;
+}
+
+.softwaredev-methodology {
+  margin-bottom: 4rem;
+}
+
+.softwaredev-methodology-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.softwaredev-methodology-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.softwaredev-methodology-card {
+  background-color: var(--color-white);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-slate-200);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition: all 0.3s;
+}
+
+.softwaredev-methodology-card:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transform: translateY(-2px);
+  border-color: var(--color-secondary);
+  background-color: var(--color-slate-50);
+}
+
+.softwaredev-methodology-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin-bottom: 0.5rem;
+}
+
+.softwaredev-methodology-card-desc {
+  font-size: 0.9375rem;
+  color: var(--color-slate-600);
+  line-height: 1.6;
+}
+
+.softwaredev-cta {
+  margin-top: 4rem;
+  background-color: var(--color-blue-50);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--color-blue-100);
+}
+
+.softwaredev-cta-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-blue-900);
+  margin-bottom: 1rem;
+}
+
+.softwaredev-cta-text {
+  color: var(--color-blue-800);
+  margin-bottom: 2rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.softwaredev-cta-button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.75rem 2rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  display: inline-block;
+}
+
+.softwaredev-cta-button:hover {
+  background-color: var(--color-slate-800);
+}
+
+@media (min-width: 640px) {
+  .softwaredev-card-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .softwaredev-methodology-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .softwaredev-hero-inner {
+    flex-direction: row;
+  }
+  
+  .softwaredev-hero-icon {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .softwaredev-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .softwaredev-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .softwaredev-hero-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .softwaredev-methodology-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
