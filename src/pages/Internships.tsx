@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Briefcase, Code, Terminal, Award, Users, ArrowRight, CheckCircle } from 'lucide-react';
+import './Internships.css';
 
 const Internships = () => {
   const highlights = [
@@ -31,24 +32,24 @@ const Internships = () => {
   ];
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="internships-container">
       {/* Hero */}
-      <div className="relative bg-slate-900 py-24 text-white overflow-hidden">
-        <div className="absolute inset-0">
+      <div className="hero-section">
+        <div className="hero-background">
           <img 
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
             alt="Internship Background" 
-            className="w-full h-full object-cover opacity-20"
+            className="hero-image"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/80" />
+          <div className="hero-overlay" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Industrial Internship Program</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+        <div className="hero-content">
+          <h1 className="hero-title">Industrial Internship Program</h1>
+          <p className="hero-description">
             Bridge the gap between academic learning and corporate expectations with our intensive, project-based internship program.
           </p>
-          <div className="mt-8">
-            <Link to="/training/internships/apply" className="bg-accent hover:bg-amber-600 text-slate-900 font-bold py-3 px-8 rounded-full transition-colors inline-block">
+          <div className="hero-cta">
+            <Link to="/training/internships/apply" className="hero-button">
               Apply Now
             </Link>
           </div>
@@ -56,23 +57,23 @@ const Internships = () => {
       </div>
 
       {/* Overview */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+      <div className="overview-section">
+        <div className="overview-grid">
           <div>
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Why Intern with KOLMAG?</h2>
-            <p className="text-lg text-gray-600 mb-6">
+            <h2 className="overview-content-title">Why Intern with KOLMAG?</h2>
+            <p className="overview-content-text">
               Our internship program offers real-time project exposure and corporate-style training designed to transform engineering students into skilled professionals.
             </p>
-            <p className="text-gray-600">
+            <p className="overview-content-text overview-content-text-last">
               Unlike traditional training, we treat interns as junior developers. You will attend stand-ups, manage tasks, and write production-quality code under the mentorship of senior engineers.
             </p>
           </div>
-          <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-             <h3 className="text-xl font-bold text-slate-900 mb-4">Internship Domains</h3>
-             <ul className="space-y-3">
+          <div className="overview-card">
+             <h3 className="overview-card-title">Internship Domains</h3>
+             <ul className="domains-list">
                {['Web Full Stack (MERN/Java/Python)', 'Data Science & AI', 'Cybersecurity & Ethical Hacking', 'Cloud Computing (AWS/DevOps)', 'Mobile App Development'].map((domain, i) => (
-                 <li key={i} className="flex items-center text-gray-700">
-                   <CheckCircle className="h-5 w-5 text-secondary mr-3" />
+                 <li key={i} className="domain-item">
+                   <CheckCircle className="domain-icon" />
                    {domain}
                  </li>
                ))}
@@ -81,25 +82,25 @@ const Internships = () => {
         </div>
 
         {/* Highlights Grid */}
-        <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">Program Highlights</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 className="highlights-title">Program Highlights</h2>
+        <div className="highlights-grid">
           {highlights.map((item, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              <item.icon className="h-10 w-10 text-secondary mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
+            <div key={idx} className="highlight-card">
+              <item.icon className="highlight-icon" />
+              <h3 className="highlight-title">{item.title}</h3>
+              <p className="highlight-description">{item.desc}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Process Section */}
-      <div className="bg-slate-50 py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-12">How It Works</h2>
-          <div className="flex flex-col md:flex-row justify-between items-center relative">
+      <div className="process-section">
+        <div className="process-container">
+          <h2 className="process-title">How It Works</h2>
+          <div className="process-steps">
             {/* Connecting Line (Desktop) */}
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-0 -translate-y-1/2"></div>
+            <div className="process-connector"></div>
             
             {[
               { step: "01", title: "Apply", desc: "Submit your application form" },
@@ -108,10 +109,10 @@ const Internships = () => {
               { step: "04", title: "Project", desc: "Work on live modules" },
               { step: "05", title: "Certification", desc: "Get certified & career support" },
             ].map((s, i) => (
-              <div key={i} className="bg-white p-6 rounded-lg shadow-sm w-full md:w-48 relative z-10 mb-8 md:mb-0 border border-gray-100">
-                <div className="text-3xl font-bold text-slate-200 mb-2">{s.step}</div>
-                <h3 className="font-bold text-slate-900 mb-1">{s.title}</h3>
-                <p className="text-xs text-gray-500">{s.desc}</p>
+              <div key={i} className="process-step">
+                <div className="process-step-number">{s.step}</div>
+                <h3 className="process-step-title">{s.title}</h3>
+                <p className="process-step-desc">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -119,11 +120,11 @@ const Internships = () => {
       </div>
 
       {/* CTA */}
-      <div className="bg-secondary py-16 text-white text-center">
-        <h2 className="text-3xl font-bold mb-4">Start Your Career Journey Today</h2>
-        <p className="text-lg opacity-90 mb-8">Limited slots available for the upcoming batch.</p>
-        <Link to="/training/internships/apply" className="inline-flex items-center bg-white text-secondary px-8 py-3 rounded-lg font-bold hover:bg-slate-100 transition-colors">
-          Register for Internship <ArrowRight className="ml-2 h-5 w-5" />
+      <div className="cta-section">
+        <h2 className="cta-title">Start Your Career Journey Today</h2>
+        <p className="cta-description">Limited slots available for the upcoming batch.</p>
+        <Link to="/training/internships/apply" className="cta-button">
+          Register for Internship <ArrowRight className="cta-button-icon" />
         </Link>
       </div>
     </div>

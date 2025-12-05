@@ -1,56 +1,67 @@
 import { Link } from 'react-router-dom';
 import { BookOpen, GraduationCap, Briefcase, Cpu } from 'lucide-react';
+import './Training.css';
 
 const Training = () => {
   return (
-    <div className="bg-slate-50 min-h-screen">
-      <div className="relative bg-slate-900 py-20 text-white overflow-hidden">
-        <div className="absolute inset-0">
+    <div className="training-container">
+      <div className="hero-section">
+        <div className="hero-background">
           <img 
             src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
             alt="Training Background" 
-            className="w-full h-full object-cover opacity-20"
+            className="hero-image"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-800/90" />
+          <div className="hero-overlay" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-4">Training & Talent Development</h1>
-          <p className="text-xl text-gray-300">
+        <div className="hero-content">
+          <h1 className="hero-title">Training & Talent Development</h1>
+          <p className="hero-description">
             Transforming engineering students into skilled professionals with industry-aligned programs.
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="content-section">
+        <div className="programs-grid">
           
-          <div className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-secondary transition-all duration-300 hover:scale-105 hover:shadow-xl">
-            <Cpu className="h-12 w-12 text-secondary mb-6" />
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">Final Year Projects</h3>
-            <p className="text-gray-600 mb-6">
+          <div className="program-card">
+            <Cpu className="program-icon" />
+            <h3 className="program-title">Final Year Projects</h3>
+            <p className="program-description">
               Complete project solutions for B.Tech, M.Tech, and Diploma students. IEEE based, hardware + software, and research support.
             </p>
-            <Link to="/training/projects" className="text-secondary font-bold hover:underline">View Project Domains &rarr;</Link>
+            <Link to="/training/projects" className="program-link">View Project Domains &rarr;</Link>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent transition-all duration-300 hover:scale-105 hover:shadow-xl">
-            <Briefcase className="h-12 w-12 text-accent mb-6" />
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">Industrial Internships</h3>
-            <p className="text-gray-600 mb-6">
+          <div className="program-card accent">
+            <Briefcase className="program-icon accent" />
+            <h3 className="program-title">Industrial Internships</h3>
+            <p className="program-description">
               Real-time project exposure, corporate training, and hands-on experience with industry tools.
             </p>
-            <Link to="/training/internships" className="text-accent font-bold hover:underline">Program Details &rarr;</Link>
+            <Link to="/training/internships" className="program-link accent">Program Details &rarr;</Link>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-purple-500 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-            <BookOpen className="h-12 w-12 text-purple-500 mb-6" />
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">Courses</h3>
-            <p className="text-gray-600 mb-6">
+          <div className="program-card purple">
+            <BookOpen className="program-icon purple" />
+            <h3 className="program-title">Courses</h3>
+            <p className="program-description">
               AI, ML, Data Science, Cybersecurity, Full Stack, and Cloud Computing courses with live projects.
             </p>
-            <Link to="/training/courses" className="text-purple-500 font-bold hover:underline">Browse Courses &rarr;</Link>
+            <Link to="/training/courses" className="program-link purple">Browse Courses &rarr;</Link>
           </div>
 
+        </div>
+
+        <div className="training-cta">
+          <h3 className="training-cta-title">Ready to Start Your Learning Journey?</h3>
+          <p className="training-cta-text">
+            Join our training programs and transform your career with industry-aligned skills and hands-on experience.
+          </p>
+          <Link to="/contact" className="training-cta-button">
+            Get Started Today
+          </Link>
         </div>
       </div>
     </div>

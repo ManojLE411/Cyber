@@ -132,7 +132,7 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Carousel Navigation Arrows */}
+        {/* Carousel Navigation Arrows
         <button 
           className="home-hero-nav home-hero-nav-prev"
           onClick={goToPrevious}
@@ -146,7 +146,7 @@ const Home = () => {
           aria-label="Next slide"
         >
           <ChevronRight style={{ height: '2rem', width: '2rem' }} />
-        </button>
+        </button> */}
 
         {/* Carousel Dots */}
         <div className="home-hero-dots">
@@ -168,10 +168,11 @@ const Home = () => {
             <div>
               <h2 className="home-about-title">About KOLMAG</h2>
               <p className="home-about-text">
-                KOLMAG Cyber Technologies Pvt Ltd is a next-generation technology company offering enterprise-level software development, robust cybersecurity services, and advanced AI & Data Science solutions.
-              </p>
-              <p className="home-about-text">
-                With a strong commitment to quality and innovation, we deliver secure, scalable, and high-performance digital systems that meet the demands of the modern world.
+                KOLMAG Cyber Technologies is a next-generation tech company delivering secure, intelligent, 
+                and future-ready digital solutions. We specialize in Cybersecurity, AI, IT Services, and Digital 
+                Learning, empowering businesses, institutions, and students with modern technology and industry-aligned expertise. 
+                With a team of skilled engineers and certified professionals, we provide enterprise solutions, software development, 
+                cloud services, and hands-on technical training that drives real-world impact.
               </p>
               <Link to="/about" className="home-about-link">Read More &rarr;</Link>
             </div>

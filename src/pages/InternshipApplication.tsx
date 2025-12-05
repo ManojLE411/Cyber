@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { BookOpen, Send, User, Mail, Phone, GraduationCap, Briefcase, FileText, CheckCircle } from 'lucide-react';
+import './InternshipApplication.css';
 
 const InternshipApplication = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -30,13 +31,13 @@ const InternshipApplication = () => {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
-        <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-xl text-center border border-slate-100">
-          <div className="h-20 w-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="h-10 w-10 text-green-600" />
+      <div className="success-container">
+        <div className="success-card">
+          <div className="success-icon-container">
+            <CheckCircle className="success-icon" />
           </div>
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">Application Received!</h2>
-          <p className="text-gray-600 mb-6">
+          <h2 className="success-title">Application Received!</h2>
+          <p className="success-message">
             Thank you for applying to the KOLMAG Internship Program. Our training team will review your profile and contact you within 48 hours.
           </p>
           <button 
@@ -54,7 +55,7 @@ const InternshipApplication = () => {
                 message: ''
               });
             }}
-            className="text-secondary font-semibold hover:underline"
+            className="success-link"
           >
             Submit another application
           </button>
@@ -64,67 +65,67 @@ const InternshipApplication = () => {
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen py-12">
-      <div className="max-w-3xl mx-auto px-6 lg:px-8">
+    <div className="internship-application-container">
+      <div className="application-container">
         
-        <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-slate-900">Internship Application Form</h1>
-          <p className="mt-2 text-gray-600">Join our industrial training program to kickstart your career.</p>
+        <div className="application-header">
+          <h1 className="application-title">Internship Application Form</h1>
+          <p className="application-subtitle">Join our industrial training program to kickstart your career.</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-          <div className="bg-slate-900 px-8 py-4 border-b border-slate-800 flex items-center">
-            <Briefcase className="h-5 w-5 text-secondary mr-3" />
-            <h2 className="text-white font-semibold">Student Details</h2>
+        <div className="application-card">
+          <div className="card-header">
+            <Briefcase className="card-header-icon" />
+            <h2 className="card-header-title">Student Details</h2>
           </div>
           
-          <form onSubmit={handleSubmit} className="p-8 space-y-6">
+          <form onSubmit={handleSubmit} className="application-form">
             
             {/* Personal Info */}
-            <div>
-              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 border-b border-gray-100 pb-2">Personal Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="form-section">
+              <h3 className="form-section-title">Personal Information</h3>
+              <div className="form-grid">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <div className="relative">
-                    <User className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
+                  <label className="form-label">Full Name</label>
+                  <div className="form-input-wrapper">
+                    <User className="form-icon" />
                     <input
                       required
                       type="text"
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleChange}
-                      className="pl-10 w-full rounded-lg border-gray-300 border bg-gray-50 p-2.5 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                      className="form-input"
                       placeholder="John Doe"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                  <div className="relative">
-                    <Mail className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
+                  <label className="form-label">Email Address</label>
+                  <div className="form-input-wrapper">
+                    <Mail className="form-icon" />
                     <input
                       required
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="pl-10 w-full rounded-lg border-gray-300 border bg-gray-50 p-2.5 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                      className="form-input"
                       placeholder="john@example.com"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                  <div className="relative">
-                    <Phone className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
+                  <label className="form-label">Phone Number</label>
+                  <div className="form-input-wrapper">
+                    <Phone className="form-icon" />
                     <input
                       required
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="pl-10 w-full rounded-lg border-gray-300 border bg-gray-50 p-2.5 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                      className="form-input"
                       placeholder="+91 98765 43210"
                     />
                   </div>
@@ -133,43 +134,43 @@ const InternshipApplication = () => {
             </div>
 
             {/* Academic Info */}
-            <div>
-              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 border-b border-gray-100 pb-2 mt-2">Academic Background</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">College / University Name</label>
-                  <div className="relative">
-                    <GraduationCap className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
+            <div className="form-section">
+              <h3 className="form-section-title mt-2">Academic Background</h3>
+              <div className="form-grid">
+                <div className="form-field-full">
+                  <label className="form-label">College / University Name</label>
+                  <div className="form-input-wrapper">
+                    <GraduationCap className="form-icon" />
                     <input
                       required
                       type="text"
                       name="college"
                       value={formData.college}
                       onChange={handleChange}
-                      className="pl-10 w-full rounded-lg border-gray-300 border bg-gray-50 p-2.5 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                      className="form-input"
                       placeholder="Enter your college name"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Degree & Branch</label>
+                  <label className="form-label">Degree & Branch</label>
                   <input
                     required
                     type="text"
                     name="degree"
                     value={formData.degree}
                     onChange={handleChange}
-                    className="w-full rounded-lg border-gray-300 border bg-gray-50 p-2.5 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                    className="form-input no-icon"
                     placeholder="e.g. B.Tech CSE"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Current Year / Semester</label>
+                  <label className="form-label">Current Year / Semester</label>
                   <select
                     name="year"
                     value={formData.year}
                     onChange={handleChange}
-                    className="w-full rounded-lg border-gray-300 border bg-gray-50 p-2.5 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                    className="form-select no-icon"
                   >
                     <option value="">Select Year</option>
                     <option value="2nd Year">2nd Year</option>
@@ -182,19 +183,19 @@ const InternshipApplication = () => {
             </div>
 
             {/* Internship Preferences */}
-            <div>
-              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 border-b border-gray-100 pb-2 mt-2">Internship Preferences</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="form-section">
+              <h3 className="form-section-title mt-2">Internship Preferences</h3>
+              <div className="form-grid">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Interested Domain</label>
-                  <div className="relative">
-                    <BookOpen className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
+                  <label className="form-label">Interested Domain</label>
+                  <div className="form-input-wrapper">
+                    <BookOpen className="form-icon" />
                     <select
                       required
                       name="domain"
                       value={formData.domain}
                       onChange={handleChange}
-                      className="pl-10 w-full rounded-lg border-gray-300 border bg-gray-50 p-2.5 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                      className="form-select"
                     >
                       <option value="">Select Domain</option>
                       <option value="Web Full Stack">Web Full Stack (MERN/Java)</option>
@@ -207,28 +208,28 @@ const InternshipApplication = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Preferred Duration</label>
+                  <label className="form-label">Preferred Duration</label>
                   <select
                     name="duration"
                     value={formData.duration}
                     onChange={handleChange}
-                    className="w-full rounded-lg border-gray-300 border bg-gray-50 p-2.5 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                    className="form-select no-icon"
                   >
                     <option value="1 Month">1 Month</option>
                     <option value="3 Months">3 Months</option>
                     <option value="6 Months">6 Months</option>
                   </select>
                 </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Why do you want to join this internship?</label>
-                  <div className="relative">
-                    <FileText className="absolute top-3 left-3 h-5 w-5 text-gray-400" />
+                <div className="form-field-full">
+                  <label className="form-label">Why do you want to join this internship?</label>
+                  <div className="form-input-wrapper">
+                    <FileText className="form-icon" />
                     <textarea
                       name="message"
                       rows={3}
                       value={formData.message}
                       onChange={handleChange}
-                      className="pl-10 w-full rounded-lg border-gray-300 border bg-gray-50 p-2.5 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                      className="form-textarea"
                       placeholder="Tell us briefly about your goals..."
                     ></textarea>
                   </div>
@@ -236,14 +237,14 @@ const InternshipApplication = () => {
               </div>
             </div>
 
-            <div className="pt-4">
+            <div className="form-submit-section">
               <button
                 type="submit"
-                className="w-full bg-secondary hover:bg-cyan-700 text-white font-bold py-3.5 px-6 rounded-lg transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center text-lg"
+                className="submit-button"
               >
-                Submit Application <Send className="ml-2 h-5 w-5" />
+                Submit Application <Send className="submit-button-icon" />
               </button>
-              <p className="text-center text-xs text-gray-400 mt-4">
+              <p className="form-disclaimer">
                 By submitting this form, you agree to be contacted by KOLMAG regarding your application.
               </p>
             </div>

@@ -1,0 +1,37 @@
+.courses-cta {
+  margin-top: 4rem;
+  background-color: var(--color-blue-50);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--color-blue-100);
+}
+
+.courses-cta-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-blue-900);
+  margin-bottom: 1rem;
+}
+
+.courses-cta-text {
+  color: var(--color-blue-800);
+  margin-bottom: 2rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.courses-cta-button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.75rem 2rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.courses-cta-button:hover {
+  background-color: var(--color-slate-800);
+}

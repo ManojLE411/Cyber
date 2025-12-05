@@ -1,0 +1,94 @@
+.not-found-container {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.not-found-content {
+  max-width: 28rem;
+  width: 100%;
+  text-align: center;
+}
+
+.not-found-header {
+  margin-bottom: 2rem;
+}
+
+.not-found-code {
+  font-size: 9rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.not-found-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.not-found-message {
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.not-found-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .not-found-actions {
+    flex-direction: row;
+  }
+}
+
+.not-found-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #06b6d4;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.not-found-button:hover {
+  background-color: #0891b2;
+}
+
+.not-found-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  background: none;
+  cursor: pointer;
+}
+
+.not-found-button-secondary:hover {
+  background-color: #f9fafb;
+}
+
+.not-found-button-icon {
+  margin-right: 0.5rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Monitor, Smartphone, Globe, ShoppingCart, Layout, Layers, ArrowRight, Code } from 'lucide-react';
+import { Monitor, Smartphone, Globe, ShoppingCart, Layout, Layers, Code } from 'lucide-react';
+import './WebDevelopment.css';
 
 const WebDevelopment = () => {
   const solutions = [
@@ -36,88 +37,88 @@ const WebDevelopment = () => {
   ];
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="web-development-container">
       {/* Hero Section */}
-      <div className="relative bg-slate-900 py-24 text-white overflow-hidden">
-        <div className="absolute inset-0">
+      <div className="hero-section">
+        <div className="hero-background">
           <img 
             src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=2064&q=80" 
             alt="Web Development Background" 
-            className="w-full h-full object-cover opacity-20"
+            className="hero-image"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/90 to-slate-900" />
+          <div className="hero-overlay" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-800 border border-slate-600 text-secondary text-sm font-medium mb-6">
-            <Code className="h-4 w-4 mr-2" />
+        <div className="hero-content">
+          <div className="hero-badge">
+            <Code className="hero-badge-icon" />
             <span>Digital Experiences</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Web & Mobile App Development</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <h1 className="hero-title">Web & Mobile App Development</h1>
+          <p className="hero-description">
             We build user-friendly, high-performance applications that engage users and drive business growth across all devices.
           </p>
         </div>
       </div>
 
       {/* Solutions Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-slate-900">Our Solutions</h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+      <div className="solutions-section">
+        <div className="solutions-header">
+          <h2 className="solutions-title">Our Solutions</h2>
+          <p className="solutions-subtitle">
             From simple landing pages to complex enterprise mobile apps, we deliver excellence.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="solutions-grid">
           {solutions.map((item, idx) => (
-            <div key={idx} className="bg-slate-50 p-8 rounded-xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-secondary group">
-              <div className="h-12 w-12 bg-white rounded-lg flex items-center justify-center mb-6 text-secondary shadow-sm group-hover:bg-secondary group-hover:text-white transition-colors">
-                <item.icon className="h-6 w-6" />
+            <div key={idx} className="solution-card">
+              <div className="solution-icon-container">
+                <item.icon className="solution-icon" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
+              <h3 className="solution-title">{item.title}</h3>
+              <p className="solution-description">{item.desc}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Tech Stack Section */}
-      <div className="bg-slate-900 py-20 text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="tech-stack-section">
+        <div className="tech-stack-container">
+          <div className="tech-stack-grid">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Technologies We Use</h2>
-              <p className="text-gray-400 mb-8 leading-relaxed">
+              <h2 className="tech-stack-title">Technologies We Use</h2>
+              <p className="tech-stack-description">
                 We stay ahead of the curve by leveraging the most modern, secure, and scalable technologies in the industry. Our full-stack expertise ensures your project is built on a solid foundation.
               </p>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="tech-stack-list">
                 {[
                   "React.js & Next.js", "Node.js & Express", "Flutter & React Native", "Python & Django", "PostgreSQL & MongoDB", "AWS & Firebase"
                 ].map((tech, i) => (
-                  <div key={i} className="flex items-center space-x-2">
-                    <div className="h-2 w-2 bg-secondary rounded-full"></div>
-                    <span className="font-medium">{tech}</span>
+                  <div key={i} className="tech-stack-item">
+                    <div className="tech-stack-bullet"></div>
+                    <span className="tech-stack-name">{tech}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="tech-visual-grid">
                {/* Visual representation of tech stack */}
-               <div className="bg-slate-800 p-6 rounded-lg text-center border border-slate-700">
-                 <h4 className="font-bold text-lg text-secondary">Frontend</h4>
-                 <p className="text-sm text-gray-400 mt-2">React, Angular, Vue</p>
+               <div className="tech-visual-card">
+                 <h4 className="tech-visual-title">Frontend</h4>
+                 <p className="tech-visual-text">React, Angular, Vue</p>
                </div>
-               <div className="bg-slate-800 p-6 rounded-lg text-center border border-slate-700">
-                 <h4 className="font-bold text-lg text-secondary">Backend</h4>
-                 <p className="text-sm text-gray-400 mt-2">Node, Python, Java</p>
+               <div className="tech-visual-card">
+                 <h4 className="tech-visual-title">Backend</h4>
+                 <p className="tech-visual-text">Node, Python, Java</p>
                </div>
-               <div className="bg-slate-800 p-6 rounded-lg text-center border border-slate-700">
-                 <h4 className="font-bold text-lg text-secondary">Mobile</h4>
-                 <p className="text-sm text-gray-400 mt-2">Flutter, iOS, Android</p>
+               <div className="tech-visual-card">
+                 <h4 className="tech-visual-title">Mobile</h4>
+                 <p className="tech-visual-text">Flutter, iOS, Android</p>
                </div>
-               <div className="bg-slate-800 p-6 rounded-lg text-center border border-slate-700">
-                 <h4 className="font-bold text-lg text-secondary">Database</h4>
-                 <p className="text-sm text-gray-400 mt-2">SQL, NoSQL, Graph</p>
+               <div className="tech-visual-card">
+                 <h4 className="tech-visual-title">Database</h4>
+                 <p className="tech-visual-text">SQL, NoSQL, Graph</p>
                </div>
             </div>
           </div>
@@ -125,16 +126,14 @@ const WebDevelopment = () => {
       </div>
 
       {/* CTA */}
-      <div className="py-20 text-center">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Have an App Idea?</h2>
-          <p className="text-gray-600 mb-8 text-lg">
-            Let's turn your vision into a reality. Contact us for a free consultation and project estimation.
-          </p>
-          <Link to="/contact" className="inline-flex items-center bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-slate-800 transition-colors">
-            Get a Quote <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
+      <div className="webdevelopment-cta">
+        <h3 className="webdevelopment-cta-title">Have an App Idea?</h3>
+        <p className="webdevelopment-cta-text">
+          Let's turn your vision into a reality. Contact us for a free consultation and project estimation.
+        </p>
+        <Link to="/contact" className="webdevelopment-cta-button">
+          Get a Quote
+        </Link>
       </div>
     </div>
   );

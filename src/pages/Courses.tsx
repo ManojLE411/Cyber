@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Code, Database, Shield, Cloud, Server, Cpu, Check, Star, Users, Clock, Award } from 'lucide-react';
+import './Courses.css';
 
 const Courses = () => {
   const courses = [
@@ -273,6 +274,17 @@ const Courses = () => {
                  <p className="text-sm text-gray-500">Average Rating</p>
               </div>
            </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="courses-cta">
+          <h3 className="courses-cta-title">Ready to Start Learning?</h3>
+          <p className="courses-cta-text">
+            Join thousands of learners and transform your career with our industry-aligned certification courses.
+          </p>
+          <Link to="/contact" className="courses-cta-button">
+            Enroll Now
+          </Link>
         </div>
       </div>
     </div>

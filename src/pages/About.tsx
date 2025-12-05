@@ -73,13 +73,7 @@ const About = () => {
               <h2 className="about-mission-title">Our Mission</h2>
             </div>
             <p className="about-mission-text">
-              KOLMAG Cyber Technologies is a professionally driven IT organization that integrates innovation, engineering excellence, and cybersecurity intelligence to deliver world-class solutions.
-            </p>
-            <p className="about-mission-text">
-              We operate across technology services, digital transformation, and talent development to create lasting impact for businesses and individuals. Our philosophy is simple: we believe that technology and talent together shape the future.
-            </p>
-            <p className="about-mission-text">
-              Our unique model ensures we deliver transformational solutions for enterprises while empowering engineering students with industry-ready capabilities through our rigorous training programs.
+              Our mission is to build secure, scalable, and innovative digital solutions while bridging the gap between industry and education empowering organizations and learners to grow, compete, and lead in a rapidly evolving digital world.
             </p>
           </div>
         </div>

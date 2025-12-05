@@ -68,6 +68,7 @@ const Navbar = () => {
                 className="navbar-logo-img"
               />
             </div>
+            <span className="navbar-company-name">KOLMAG <br /> Cyber Technologies</span>
           </Link>
           
           <div className="navbar-links">

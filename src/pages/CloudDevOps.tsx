@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { Cloud, Container, GitBranch, ShieldCheck, Settings, ArrowRight, TrendingUp, CheckCircle, Lock } from 'lucide-react';
+import { Cloud, Container, GitBranch, ShieldCheck, Settings, TrendingUp, CheckCircle, Lock } from 'lucide-react';
+import './CloudDevOps.css';
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -32,10 +33,8 @@ const AnimatedSection = ({ children, className = '', delay = '0ms' }: AnimatedSe
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      } ${className}`}
-      style={{ transitionDelay: delay }}
+      className={`animated-section ${isVisible ? 'visible' : ''} ${className}`}
+      style={{ '--delay': delay } as React.CSSProperties}
     >
       {children}
     </div>
@@ -68,23 +67,23 @@ const CloudDevOps = () => {
   ];
 
   return (
-    <div className="bg-white min-h-screen flex flex-col">
+    <div className="cloud-devops-container">
       {/* Hero Section */}
-      <div className="relative bg-slate-900 py-24 text-white overflow-hidden">
-        <div className="absolute inset-0">
+      <div className="hero-section">
+        <div className="hero-background">
           <img 
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" 
             alt="Cloud Infrastructure" 
-            className="w-full h-full object-cover opacity-20"
+            className="hero-image"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-blue-900/80" />
+          <div className="hero-overlay" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <div className="hero-content">
           <AnimatedSection>
-            <h1 className="text-4xl font-bold mb-6">Cloud & DevOps Services</h1>
+            <h1 className="hero-title">Cloud & DevOps Services</h1>
           </AnimatedSection>
           <AnimatedSection delay="200ms">
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="hero-description">
               We enable organizations to adopt secure, scalable, and cost-effective cloud infrastructures.
             </p>
           </AnimatedSection>
@@ -92,15 +91,15 @@ const CloudDevOps = () => {
       </div>
 
       {/* Offerings Section */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <AnimatedSection className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-slate-900">Our Offerings</h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+      <div className="offerings-section">
+        <AnimatedSection className="section-header">
+          <h2 className="section-title">Our Offerings</h2>
+          <p className="section-subtitle">
             From migration to automation, we provide end-to-end cloud solutions tailored to your business needs.
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="offerings-grid">
           {[
             {
               icon: Cloud,
@@ -129,10 +128,10 @@ const CloudDevOps = () => {
             }
           ].map((item, index) => (
              <AnimatedSection key={index} delay={`${index * 100}ms`}>
-               <div className="group bg-slate-50 p-8 rounded-xl border border-slate-100 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-secondary h-full cursor-default">
-                <item.icon className="h-10 w-10 text-secondary mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-secondary transition-colors">{item.title}</h3>
-                <p className="text-gray-600">
+               <div className="offering-card">
+                <item.icon className="offering-icon" />
+                <h3 className="offering-title">{item.title}</h3>
+                <p className="offering-desc">
                   {item.desc}
                 </p>
               </div>
@@ -142,37 +141,37 @@ const CloudDevOps = () => {
       </div>
 
       {/* Case Studies Section */}
-      <div className="bg-slate-50 py-20 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900">Success Stories</h2>
-            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+      <div className="case-studies-section">
+        <div className="case-studies-container">
+          <AnimatedSection className="section-header">
+            <h2 className="section-title">Success Stories</h2>
+            <p className="section-subtitle">
               Real-world impact of our Cloud & DevOps expertise.
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="case-studies-grid">
             {caseStudies.map((study, idx) => (
               <AnimatedSection key={idx} delay={`${idx * 150}ms`}>
-                <div className="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col hover:shadow-2xl hover:border-blue-200 transition-all duration-300 hover:-translate-y-2 h-full">
-                  <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-700">
-                    <study.icon className="h-6 w-6" />
+                <div className="case-study-card">
+                  <div className="case-study-icon-container">
+                    <study.icon className="case-study-icon" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-4">{study.title}</h3>
+                  <h3 className="case-study-title">{study.title}</h3>
                   
-                  <div className="mb-4">
-                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Challenge</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">{study.challenge}</p>
-                  </div>
-                  
-                  <div className="mb-4">
-                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Solution</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">{study.solution}</p>
+                  <div className="case-study-section">
+                    <h4 className="case-study-label">Challenge</h4>
+                    <p className="case-study-text">{study.challenge}</p>
                   </div>
                   
-                  <div className="mt-auto pt-4 border-t border-gray-100">
-                    <h4 className="text-xs font-bold text-green-600 uppercase tracking-wider mb-1">Outcome</h4>
-                    <p className="text-sm font-medium text-slate-800">{study.outcome}</p>
+                  <div className="case-study-section">
+                    <h4 className="case-study-label">Solution</h4>
+                    <p className="case-study-text">{study.solution}</p>
+                  </div>
+                  
+                  <div className="case-study-outcome">
+                    <h4 className="case-study-outcome-label">Outcome</h4>
+                    <p className="case-study-outcome-text">{study.outcome}</p>
                   </div>
                 </div>
               </AnimatedSection>
@@ -182,18 +181,14 @@ const CloudDevOps = () => {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-slate-900 py-16 text-white mt-auto">
-        <AnimatedSection className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
-          <div className="mb-8 md:mb-0">
-            <h2 className="text-3xl font-bold mb-4">Ready to Modernize Your Infrastructure?</h2>
-            <p className="text-gray-400 max-w-xl">
-              Contact our experts to discuss your cloud strategy and DevOps transformation today.
-            </p>
-          </div>
-          <Link to="/contact" className="bg-secondary hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-cyan-500/20">
-            Get a Consultation <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </AnimatedSection>
+      <div className="clouddevops-cta">
+        <h3 className="clouddevops-cta-title">Ready to Modernize Your Infrastructure?</h3>
+        <p className="clouddevops-cta-text">
+          Contact our experts to discuss your cloud strategy and DevOps transformation today.
+        </p>
+        <Link to="/contact" className="clouddevops-cta-button">
+          Get a Consultation
+        </Link>
       </div>
     </div>
   );

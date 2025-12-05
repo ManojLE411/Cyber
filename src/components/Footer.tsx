@@ -16,6 +16,7 @@ const Footer = () => {
                 alt="KOLMAG Cyber Technologies Logo" 
                 className="footer-logo-img"
               />
+              <span className="footer-company-name">KOLMAG Cyber Technologies</span>
             </Link>
             <p className="footer-description">
               Next-generation technology company offering enterprise-level software development, robust cybersecurity services, and advanced AI & Data Science solutions.
@@ -53,7 +54,14 @@ const Footer = () => {
             <ul className="footer-list" style={{ gap: '0.75rem' }}>
               <li className="footer-contact-item">
                 <MapPin className="footer-contact-icon" />
-                <span>5th Floor, Vasista Bhavan, one day co working labs, APHB Colony, Indira Nagar, Gachibowli, Seri Lingampally, K.V.Rangareddy, Telangana - 500032</span>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=5th+Floor,+Vasista+Bhavan,+APHB+Colony,+Indira+Nagar,+Gachibowli,+Seri+Lingampally,+K.V.Rangareddy,+Telangana+-+500032" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="footer-contact-link footer-address-link"
+                >
+                  5th Floor, Vasista Bhavan, APHB Colony, Indira Nagar, Gachibowli, Seri Lingampally, K.V.Rangareddy, Telangana - 500032
+                </a>
               </li>
               <li className="footer-contact-item-center">
                 <Phone className="footer-contact-icon-center" />
@@ -61,7 +69,7 @@ const Footer = () => {
               </li>
               <li className="footer-contact-item-center">
                 <Mail className="footer-contact-icon-center" />
-                <a href="mailto:Kolmagcybertech@gmail.com" className="footer-contact-link">Kolmagcybertech@gmail.com</a>
+                <a href="mailto:contact@kolmagtech.com" className="footer-contact-link">contact@kolmagtech.com</a>
               </li>
             </ul>
           </div>

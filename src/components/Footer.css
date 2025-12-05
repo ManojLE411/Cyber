@@ -23,9 +23,10 @@
 .footer-logo {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  gap: 0.75rem;
   margin-bottom: 1rem;
   transition: opacity 0.2s;
+  flex-wrap: wrap;
 }
 
 .footer-logo:hover {
@@ -39,6 +40,13 @@
   object-fit: contain;
   display: block;
   border-radius: 0.5rem;
+}
+
+.footer-company-name {
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 1.125rem;
+  white-space: nowrap;
 }
 
 .footer-description {
@@ -131,6 +139,17 @@
 }
 
 .footer-contact-link:hover {
+  color: var(--color-secondary);
+}
+
+.footer-address-link {
+  display: inline;
+  cursor: pointer;
+  word-break: break-word;
+}
+
+.footer-address-link:hover {
+  text-decoration: underline;
   color: var(--color-secondary);
 }
 

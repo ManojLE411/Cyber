@@ -1,0 +1,144 @@
+.legal-container {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.legal-header {
+  background-color: #f1f5f9;
+  padding: 4rem 0;
+}
+
+.legal-header-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .legal-header-container {
+    padding: 0 2rem;
+  }
+}
+
+.legal-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.legal-subtitle {
+  color: #4b5563;
+  margin-top: 0.5rem;
+}
+
+.legal-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .legal-content {
+    padding: 0 2rem;
+  }
+}
+
+.legal-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .legal-layout {
+    flex-direction: row;
+  }
+}
+
+.legal-sidebar {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .legal-sidebar {
+    width: 16rem;
+  }
+}
+
+.sidebar-nav {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  position: sticky;
+  top: 6rem;
+}
+
+.sidebar-button {
+  width: 100%;
+  text-align: left;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f3f4f6;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+.sidebar-button:hover {
+  background-color: #f8fafc;
+}
+
+.sidebar-button.active {
+  background-color: #f8fafc;
+  color: #06b6d4;
+  font-weight: 700;
+  border-left: 4px solid #06b6d4;
+}
+
+.sidebar-button:last-child {
+  border-bottom: none;
+}
+
+.legal-main {
+  flex: 1;
+  background-color: white;
+  padding: 2rem;
+  border: 1px solid #f3f4f6;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.legal-content-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.legal-content-text {
+  max-width: none;
+  color: #374151;
+}
+
+.legal-section-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-section-text {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.legal-updated {
+  margin-bottom: 1rem;
+}
