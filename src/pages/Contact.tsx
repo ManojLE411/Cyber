@@ -68,7 +68,7 @@ const Contact = () => {
                     <div>
                       <h3 className="contact-info-label">Head Office</h3>
                       <p className="contact-info-text">
-                        5th Floor, Vasista Bhavan, one day co working labs, APHB Colony, Indira Nagar, Gachibowli, Seri Lingampally, K.V.Rangareddy, Telangana - 500032
+                        5th Floor, Vasista Bhavan, APHB Colony, Indira Nagar, Gachibowli, Seri Lingampally, K.V.Rangareddy, Telangana - 500032
                       </p>
                     </div>
                   </li>
@@ -83,7 +83,7 @@ const Contact = () => {
                     <Mail className="contact-info-icon-center" />
                     <div>
                       <h3 className="contact-info-label">Email</h3>
-                      <a href="mailto:Kolmagcybertech@gmail.com" className="contact-info-link">Kolmagcybertech@gmail.com</a>
+                      <a href="mailto:contact@kolmagcybertech.com" className="contact-info-link">contact@kolmagcybertech.com</a>
                     </div>
                   </li>
                 </ul>
