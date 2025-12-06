@@ -61,9 +61,10 @@
 .navbar-company-name {
   color: var(--color-white);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.875rem;
   white-space: nowrap;
-  display: none;
+  display: block;
+  line-height: 1.2;
 }
 
 .navbar-links {
@@ -269,6 +270,15 @@
     height: 2.5rem;
     max-width: 130px;
   }
+  
+  .navbar-company-name {
+    font-size: 0.75rem;
+    line-height: 1.1;
+  }
+  
+  .navbar-logo {
+    gap: 0.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -285,7 +295,7 @@
   }
   
   .navbar-company-name {
-    display: block;
+    font-size: 1rem;
   }
 }
 
