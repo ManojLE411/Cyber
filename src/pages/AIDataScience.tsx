@@ -145,7 +145,7 @@ const AIDataScience = () => {
             <div className="tech-card">
               <h3 className="tech-card-title">Technologies We Leverage</h3>
               <div className="tech-tags">
-                {['TensorFlow', 'PyTorch', 'Python', 'Scikit-learn', 'OpenCV', 'Pandas', 'Keras', 'Apache Spark', 'AWS SageMaker', 'Azure AI'].map((tech) => (
+                {['TensorFlow', 'PyTorch', 'Python', 'Scikit-learn', 'OpenCV', 'Pandas', 'Keras', 'Apache Spark', 'AWS SageMaker', 'Azure AI', 'Sap basics','GitHub','PowerBi'].map((tech) => (
                   <span key={tech} className="tech-tag">
                     {tech}
                   </span>

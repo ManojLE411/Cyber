@@ -47,7 +47,7 @@ const About = () => {
         <div className="about-hero-content">
           <h1 className="about-hero-title">About KOLMAG</h1>
           <p className="about-hero-description">
-            Empowering enterprises with cutting-edge technology solutions while shaping the next generation of engineering talent.
+          KOLMAG Cyber Technologies is built on a single belief: the future belongs to those who innovate fearlessly, secure intelligently, and empower humanity with technology that transforms possibilities into reality
           </p>
         </div>
       </div>
