@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Users, Smile, Coffee, Target, ArrowRight, Briefcase } from 'lucide-react';
+import './Careers.css';
 
 const Careers = () => {
   const benefits = [
@@ -37,72 +38,71 @@ const Careers = () => {
   ];
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="careers-container">
       {/* Hero */}
-      <div className="relative bg-primary py-24 text-white text-center overflow-hidden">
-        <div className="absolute inset-0">
+      <div className="careers-hero">
+        <div className="careers-hero-bg">
           <img 
             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80" 
             alt="Careers Background" 
-            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-primary/90" />
+          <div className="careers-hero-overlay" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 lg:px-8">
-          <h1 className="text-4xl font-bold mb-6">Join Our Team</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto px-4">
+        <div className="careers-hero-content">
+          <h1 className="careers-hero-title">Join Our Team</h1>
+          <p className="careers-hero-description">
             Build the future of technology with us. We are always looking for passionate individuals to join our mission.
           </p>
         </div>
       </div>
 
       {/* Life at KOLMAG */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-slate-900">Life at KOLMAG</h2>
-          <p className="mt-4 text-gray-600">
+      <div className="careers-life-section">
+        <div className="careers-section-header">
+          <h2 className="careers-section-title">Life at KOLMAG</h2>
+          <p className="careers-section-description">
             More than just a workplace, we are a community of innovators.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="careers-benefits-grid">
           {benefits.map((b, i) => (
-            <div key={i} className="text-center p-6 bg-slate-50 rounded-xl">
-              <div className="h-12 w-12 bg-white rounded-full flex items-center justify-center text-secondary mx-auto mb-4 shadow-sm">
-                <b.icon className="h-6 w-6" />
+            <div key={i} className="careers-benefit-card">
+              <div className="careers-benefit-icon-container">
+                <b.icon className="careers-benefit-icon" />
               </div>
-              <h3 className="font-bold text-lg mb-2">{b.title}</h3>
-              <p className="text-sm text-gray-600">{b.desc}</p>
+              <h3 className="careers-benefit-title">{b.title}</h3>
+              <p className="careers-benefit-description">{b.desc}</p>
             </div>
           ))}
         </div>
 
         {/* Openings */}
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-          <div className="bg-slate-900 p-6 text-white flex justify-between items-center">
-            <h3 className="text-xl font-bold flex items-center">
-              <Briefcase className="mr-2 h-5 w-5 text-secondary" />
-              Current Openings
+        <div className="careers-openings-card">
+          <div className="careers-openings-header">
+            <h3 className="careers-openings-title">
+              <Briefcase className="careers-openings-title-icon" />
+              <span className="careers-openings-title-text">Current Openings</span>
             </h3>
-            <span className="text-sm bg-secondary px-3 py-1 rounded-full text-white">{openings.length} Roles</span>
+            <span className="careers-openings-badge">{openings.length} Roles</span>
           </div>
-          <div className="divide-y divide-gray-100">
+          <div className="careers-openings-list">
             {openings.map((job, idx) => (
-              <div key={idx} className="p-6 flex flex-col md:flex-row justify-between items-center hover:bg-slate-50 transition-colors">
-                <div className="mb-4 md:mb-0">
-                  <h4 className="text-lg font-bold text-slate-800">{job.role}</h4>
-                  <div className="flex space-x-4 mt-2 text-sm text-gray-500">
-                    <span>{job.exp}</span>
-                    <span>•</span>
-                    <span>{job.location}</span>
-                    <span>•</span>
-                    <span>{job.type}</span>
+              <div key={idx} className="careers-job-item">
+                <div className="careers-job-content">
+                  <h4 className="careers-job-role">{job.role}</h4>
+                  <div className="careers-job-details">
+                    <span className="careers-job-detail-item">{job.exp}</span>
+                    <span className="careers-job-detail-separator">•</span>
+                    <span className="careers-job-detail-item">{job.location}</span>
+                    <span className="careers-job-detail-separator">•</span>
+                    <span className="careers-job-detail-item">{job.type}</span>
                   </div>
                 </div>
                 <Link 
                   to="/careers/apply" 
                   state={{ role: job.role }}
-                  className="border border-slate-300 text-slate-700 px-6 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white hover:border-slate-800 transition-colors"
+                  className="careers-job-apply-btn"
                 >
                   Apply Now
                 </Link>
@@ -112,13 +112,13 @@ const Careers = () => {
         </div>
 
         {/* Internship Callout */}
-        <div className="mt-20 bg-slate-50 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between border border-slate-200">
-          <div className="mb-6 md:mb-0">
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">Looking for an Internship?</h3>
-            <p className="text-gray-600">Start your career with our intensive industrial training program.</p>
+        <div className="careers-internship-callout">
+          <div className="careers-internship-content">
+            <h3 className="careers-internship-title">Looking for an Internship?</h3>
+            <p className="careers-internship-description">Start your career with our intensive industrial training program.</p>
           </div>
-          <Link to="/training/internships" className="flex items-center text-secondary font-bold hover:underline">
-            View Internship Details <ArrowRight className="ml-2 h-5 w-5" />
+          <Link to="/training/internships" className="careers-internship-link">
+            View Internship Details <ArrowRight className="careers-internship-link-icon" />
           </Link>
         </div>
 

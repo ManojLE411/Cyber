@@ -8,10 +8,28 @@ const Contact = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Simulate API call
-    setSubmitted(true);
+    
+    // Format the message for WhatsApp
+    const whatsappMessage = `Hello! I would like to get in touch.\n\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Email:* ${formData.email}\n` +
+      `${formData.phone ? `*Phone:* ${formData.phone}\n` : ''}` +
+      `*Message:*\n${formData.message}`;
+    
+    // WhatsApp number from contact info (remove spaces and special characters)
+    const whatsappNumber = '+919390715509'; // +91 63096 49554
+    
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+    
+    // Reset form after redirect
     setFormData({ name: '', email: '', phone: '', message: '' });
-    window.scrollTo(0, 0);
   };
 
   if (submitted) {
