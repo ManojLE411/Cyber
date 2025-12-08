@@ -17,7 +17,7 @@ const Contact = () => {
       `*Message:*\n${formData.message}`;
     
     // WhatsApp number from contact info (remove spaces and special characters)
-    const whatsappNumber = '+919390715509'; // +91 63096 49554
+    const whatsappNumber = '+916309649554'; // +91 63096 49554
     
     // Encode the message for URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
